@@ -1,0 +1,48 @@
+{
+  "name": "SLauncher",
+  "version": "1.0.5",
+  "description": "Um launcher de Minecraft",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "npx electron-packager . SLauncher --platform=win32 --arch=x64 --overwrite --out build/ & npx ts-node src/build-installer",
+    "setup": "npx ts-node src/build-installer",
+    "build:css:dev": "npx tailwindcss -i ./src/core/css/input.css -o ./src/core/css/style.css --watch",
+    "build:css": "npx tailwindcss -i ./src/core/css/input.css -o ./src/core/css/style.css",
+    "start": "tsc && ts-node src/exclude/pre.ts && electron dist/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Takasu01",
+  "license": "MIT",
+  "dependencies": {
+    "@prisma/client": "^5.0.0",
+    "@types/discord-rich-presence": "^0.0.0",
+    "@types/shelljs": "^0.8.12",
+    "appdata-path": "^1.0.0",
+    "axios": "^1.4.0",
+    "decompress": "^4.2.1",
+    "discord-rich-presence": "^0.0.8",
+    "dotenv": "^16.3.1",
+    "easy-presence": "^1.2.0-oops1",
+    "material-icons": "^1.13.8",
+    "minecraft-java-core": "^3.5.8",
+    "semver": "^7.5.4",
+    "shelljs": "^0.8.5",
+    "unzipper": "^0.10.14"
+  },
+  "devDependencies": {
+    "@types/decompress": "^4.2.5",
+    "@types/ejs": "^3.1.2",
+    "@types/semver": "^7.5.3",
+    "@types/unzipper": "^0.10.7",
+    "electron": "^25.3.0",
+    "electron-builder": "^24.4.0",
+    "electron-installer-windows": "^3.0.0",
+    "electron-wix-msi": "^5.0.0",
+    "prisma": "^5.0.0",
+    "tailwindcss": "^3.3.3",
+    "ts-node": "^10.9.1",
+    "typed-emitter": "^2.1.0",
+    "typescript": "^5.1.6"
+  }
+}
